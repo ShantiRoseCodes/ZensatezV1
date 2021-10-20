@@ -1,20 +1,35 @@
-DROP TABLE IF EXISTS students; 
-DROP TABLE IF EXISTS classes; 
+DROP TABLE IF EXISTS menu; 
+DROP TABLE IF EXISTS orders; 
+DROP TABLE IF EXISTS items;
  
-CREATE TABLE classes ( 
+CREATE TABLE menu ( 
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    title VARCHAR(100), 
-    teacher VARCHAR(100) 
+    category VARCHAR(100), 
+    dish VARCHAR(200),
+    details VARCHAR(500),
+    imagefile VARCHAR(500),
+    price DEC(5,2)
 ); 
  
-CREATE TABLE students ( 
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    first_name VARCHAR(100), 
-    last_name VARCHAR(100), 
-    FOREIGN KEY(class_id) REFERENCES classes(id) 
+CREATE TABLE orders ( 
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    date_time DATETIME DEFAULT NOW(),
+    tablenumber SMALLINT
 ); 
+
+CREATE TABLE items (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    dish VARCHAR(200),
+    quantity SMALLINT,
+    order_id INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id)
+);
  
-INSERT INTO classes (title, teacher)  
-    VALUES ('Intro to Express', 'Hernandez'); 
-INSERT INTO students (first_name, last_name, class_id)  
-    VALUES ('Michael', 'Goleman', 1);
+INSERT INTO menu (category, dish, details, imagefile, price)  
+    VALUES ('tapas', 'Patatas Bravas', 'fried potatoes with salsa brava', 'patatasbravas.jpg', 2.50); 
+
+INSERT INTO orders (tablenumber)  
+    VALUES (1);
+
+INSERT INTO items (dish, quantity, order_id)
+    VALUES ('Patatas Bravas', 1, 1);

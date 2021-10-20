@@ -6,4 +6,10 @@ router.get('/', function(req, res, next) {
   res.send({ title: 'Express' });
 });
 
+router.post('/admin', function(req,res,next){
+  db()
+}
+
+)
+
 module.exports = router;

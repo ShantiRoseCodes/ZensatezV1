@@ -4,12 +4,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// var fileUpload = require('express-fileupload');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+// var imageRouter = require ('./routes/images');
 
 var app = express();
 app.use(cors()); 
+//need to use file upload
+// app.use(
+//   fileUpload({
+//     useTempFiles: true,
+//     tempFileDir: "/.tmp/"
+//   })
+// );
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,6 +29,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// serve static images from public/images 
+// app.use(express.static('public'));
+
+// app.use('/images', imageRouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
