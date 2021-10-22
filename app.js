@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 // var fileUpload = require('express-fileupload');
 
-var indexRouter = require('./routes/index');
+var menuRouter = require('./routes/index');
+var orderRouter = require('./routes/index'); 
 // var require new routers here
 
 
@@ -37,8 +38,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/images', imageRouter);
 
-app.use('/menu', indexRouter);
-//app.use new routers
+app.use('/menu', menuRouter);
+app.use('/orders', orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
