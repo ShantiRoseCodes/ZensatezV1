@@ -54,7 +54,7 @@ function AdminCreateMenuView (props) {
               <input type="number" name="price" value={item.price} onChange={handleChange}/>
             </label>
             <br></br>
-            <button type = "submit">SUMBIT</button>
+            <button type = "submit">SUBMIT</button>
           </form>
         </div>
       );    

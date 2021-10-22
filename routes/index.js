@@ -7,12 +7,13 @@ const db = require("../model/helper");
 //   res.send({ title: 'Express' });
 // });
 
+
 router.get('/', async function(req, res, next){
   try{
     let results = await db("SELECT * FROM menu ORDER BY category;");
     res.send(results.data);
   } catch(err) {
-    res.status(400).send({ error: "Sorry. We are encountering technical difficulties."});
+    res.status(500).send({ error: "Sorry. We are encountering technical difficulties."});
   }  
 });
 
@@ -24,9 +25,8 @@ router.post('/', async function(req,res,next){
       `INSERT INTO menu (category, dish, details, imagefile, price)  
       VALUES ("${category}", "${dish}", "${details}", "${imagefile}", ${price});`;
     await db(sql);
-    let results = await db("SELECT * FROM menu;");
+    let results = await db("SELECT * FROM menu ORDER BY category;");
     res.send(results.data);
-    console.log(results.data);
   } catch(err) {
     res.status(500).send({ error: err.message});
   }  

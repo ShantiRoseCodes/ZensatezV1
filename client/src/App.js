@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import "./App.css";
 
 import Navbar from './Components/Navbar';
@@ -10,13 +10,14 @@ export default function App (){
   let [menu, setMenu] = useState([]);
   
   useEffect (() => {
-    getMenu();}, []);
+    getMenu();
+      }, []);
 
   const getMenu = () => {
-    fetch('/')
+    fetch('/menu')
       .then(response => response.json())
-      .then(menu => {setMenu(menu);
-      })
+      .then(menu => {setMenu(menu); 
+        console.log(menu)})
       .catch(error => {console.log(error);
       })
   }
@@ -31,19 +32,18 @@ export default function App (){
     }
 
     try{
-      let response = await fetch('/', options);
+      let response = await fetch('/menu', options);
       if(response.ok){
         let data = await response.json();
         setMenu(data);
-        getMenu();
-        console.log(menu);
       } else {
         console.log(`server error: ${response.status}`);
       }
     } catch (error) {
       console.log(`network error: ${error.message}`);
     }
-  }
+  } 
+
 
   return (
     <div>
