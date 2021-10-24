@@ -2,30 +2,42 @@ import { useState } from "react";
 
 function UserMenuView(props) {
 
-let [orders, setOrders] = useState([]);
-let [table, setTable] = useState([]);
-let [orderItems, setOrderItems] = useState({
+const emptyForm = {
+    tablenumber: "",
+    dish: "",
+    quantity: ""
+};
 
-});
+let [orderItems, setOrderItems] = useState(emptyForm);
+
+const handleChange = (event) => {
+    setOrderItems({...orderItems, [event.target.name]: event.target.value});
+    console.log(event.target.name);
+    console.log(event.target.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.addOrder(orderItems);
+    setOrderItems(emptyForm);
+  }
+
+
     return (
         <div className="UserMenuView">
             <h3>Enter your table number.</h3>
-            <form>
-            <label>TABLE NUMBER:<input name="table" type="number" min="1" max="10"/></label>
+            <form onSubmit = {handleSubmit}>
+            <label>TABLE NUMBER:<input name="tablenumber" value={orderItems.tablenumber} onChange={handleChange} type="number" min="1" max="10"/></label>
             <h2>Menu</h2>
-            <p>Choose your order by clicking the button below.</p>
+            <p>Choose the items you would like to order and hit submit.</p>
             <ul>
                 {props.menu.map((element) => (
-                    <li key={element.id}>
-                     {element.dish} {element.description} {element.price} 
-                     <input name={element.dish} type="number" min="1" max="10"/>
+                    <li key={element.id}> 
+                     <button name="dish" value = {orderItems.dish = element.dish}> {element.dish} </button>        EU{element.price} <br/> {element.details}
+                     <input name="quantity" value={orderItems.quantity} type="number" onChange={handleChange} min="1" max="10"/>
                     </li>
                 ))
                 }</ul>
-
-                <h3>ORDER SUMMARY</h3>
-                <p>Please check your order and hit the submit button when you are ready.</p>
-
                 <button type="submit">SUBMIT ORDER</button>    
             </form>
         </div>

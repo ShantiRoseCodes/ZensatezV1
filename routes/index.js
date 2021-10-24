@@ -34,9 +34,8 @@ router.post('/', async function(req,res,next){
 
 router.get('/orders', async function(req, res, next){
   try{
-    let response = await db("SELECT * FROM orders ORDER BY time;");
+    let response = await db("SELECT * FROM orders ORDER BY date_time;");
     res.send(response.data);
-    console.log(response.data);
   } catch(err) {
     res.status(500).send({ error: "Sorry. We are encountering technical difficulties."});
   }  
@@ -48,9 +47,9 @@ router.post('/orders', async function(req,res,next){
   try{
     let mysql = 
       `INSERT INTO orders (tablenumber, dish, quantity)  
-      VALUES ("${tablenumber}", "${dish}", "${quantity}");`;
+      VALUES (${tablenumber}, "${dish}", ${quantity});`;
     await db(mysql);
-    let response = await db("SELECT * FROM orders ORDER BY time;");
+    let response = await db("SELECT * FROM orders ORDER BY date_time;");
     res.send(response.data);
   } catch(err) {
     res.status(500).send({ error: err.message});

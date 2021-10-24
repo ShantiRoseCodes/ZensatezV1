@@ -20,8 +20,9 @@ CREATE TABLE orders (
 
  
 INSERT INTO menu (category, dish, details, imagefile, price)  
-    VALUES ('tapas', 'Patatas Bravas', 'fried potatoes with salsa brava', 'patatasbravas.jpg', 2.50); 
+    VALUES ('tapas', 'Patatas Bravas', 'fried potatoes with salsa brava', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Patatas_bravas_madrid.jpg/640px-Patatas_bravas_madrid.jpg', 2.50); 
 
 
 INSERT INTO orders (tablenumber, dish, quantity)
     VALUES (1, 'Patatas Bravas', 1);
+    

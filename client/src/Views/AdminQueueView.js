@@ -5,7 +5,9 @@ function AdminQueueView(props) {
     return (
         <div className="AdminQueueView">
             <h2>ORDERS</h2>
-            <p>You will soon see a list of orders here.</p>
+            {props.orders.map((element) =>(
+                <li>{element.date_time} DISH: {element.dish}  QTY: {element.quantity} TABLE:{element.tablenumber} <button></button> </button></li>
+            ))}
         </div>
     );
 }

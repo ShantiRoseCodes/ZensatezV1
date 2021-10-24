@@ -23,12 +23,12 @@ function Routes(props) {
     
             {/* This contains the list of orders for the kitchen */}
             <Route path="/queue">
-                <AdminQueueView />
+                <AdminQueueView orders={props.orders}/>
             </Route>
     
             {/* This contains the menu for customers */}
             <Route path="/menu">
-                <UserMenuView  menu= {props.menu} />
+                <UserMenuView  menu= {props.menu} addOrder = {orderItems => props.addOrder(orderItems)} orders={props.orders} />
             </Route>
     
             {/* This contains all the items ordered by the customer */}

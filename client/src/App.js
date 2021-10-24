@@ -8,9 +8,11 @@ import Routes from './Components/Routes';
 
 export default function App (){
   let [menu, setMenu] = useState([]);
+  let [orders, setOrders] = useState([]);
   
   useEffect (() => {
     getMenu();
+    getOrder();
       }, []);
 
   const getMenu = () => {
@@ -18,6 +20,15 @@ export default function App (){
       .then(response => response.json())
       .then(menu => {setMenu(menu); 
         console.log(menu)})
+      .catch(error => {console.log(error);
+      })
+  }
+
+  const getOrder = () => {
+    fetch('/menu/orders')
+      .then(response => response.json())
+      .then(orders => {setOrders(orders); 
+        console.log(orders)})
       .catch(error => {console.log(error);
       })
   }
@@ -44,11 +55,32 @@ export default function App (){
     }
   } 
 
+  async function addOrder (orderItems) {
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderItems)
+    }
+
+    try{
+      let response = await fetch('/menu/orders', options);
+      if(response.ok){
+        let data = await response.json();
+        setOrders(data);
+      } else {
+        console.log(`server error: ${response.status}`);
+      }
+    } catch (error) {
+      console.log(`network error: ${error.message}`);
+    }
+  } 
 
   return (
     <div>
       <Navbar/>
-      <Routes menu = {menu} addItem = {item => addItem(item)}/>  
+      <Routes orders={orders} menu = {menu} addItem = {item => addItem(item)} addOrder = {orders => addOrder(orders)}/>  
     </div>
   );
 
