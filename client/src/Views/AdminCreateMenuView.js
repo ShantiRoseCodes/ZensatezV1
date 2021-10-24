@@ -24,6 +24,7 @@ function AdminCreateMenuView (props) {
       }
       return (
         <div className="createMenu">
+          <div className="container">
           <form onSubmit = {handleSubmit}>
             <label> Category </label>
               <select name="category" value={item.category} onChange={handleChange}>
@@ -56,6 +57,7 @@ function AdminCreateMenuView (props) {
             <br></br>
             <button type = "submit">SUBMIT</button>
           </form>
+          </div>
         </div>
       );    
 }
