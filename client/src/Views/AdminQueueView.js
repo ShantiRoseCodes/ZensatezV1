@@ -5,9 +5,14 @@ import './Views.css';
 
 function AdminQueueView(props) {
 
+    // const handleStrike = event => {
+    //     event.target.className = "strike";
+    // }
+
     const handleStrike = event => {
-        event.target.className = "strike";
-        }
+        let li = event.target.closest('li');
+        li.classList.add('strike');
+    }
 
     return (
         <div className="AdminQueueView">
@@ -15,7 +20,7 @@ function AdminQueueView(props) {
             <h2>ORDERS</h2>
             {props.orders.map((element) =>(
                 <li onClick={handleStrike}>
-                <table class="table table-striped table-bordered">
+                <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col"> DATE/TIME </th>

@@ -33,7 +33,10 @@ const handleClick = (event) => {
                 <form onSubmit = {handleSubmit}>
                 
                 <div className="form-group">
-                <label for="inputTableNumber">TABLE NUMBER:<input id="inputTableNumber" className="form-control border border-dark" name="tablenumber" value={orderItems.tablenumber} onChange={handleChange} type="number" min="1" max="10"/></label>
+                <label className="font-weight-bold" for="inputTableNumber">TABLE NUMBER:</label>
+                <div className="col-4">
+                <input id="inputTableNumber" className="form-control border border-dark" name="tablenumber" value={orderItems.tablenumber} onChange={handleChange} type="number" min="1" max="10"/>
+                </div>
                 </div>
             
                 <h2>Menu</h2>
@@ -51,8 +54,8 @@ const handleClick = (event) => {
                     
                     <div className="col-md">
                     <button type = "button" class="btn btn-secondary btn-sm" name="dish" value = {element.dish} onClick={handleClick}> {element.dish} </button> 
-                    <br/> {element.details}
-                    <br/> {element.category}
+                    <p className="font-italic"> {element.details} </p>
+                    <span className="badge badge-info"> {element.category} </span>
                     </div>
                     
                     <div className="col-sm"> 

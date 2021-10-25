@@ -43,28 +43,28 @@ function AdminCreateMenuView (props) {
                 </div> 
             </div>  
               <div className="form-group">
-              <label for="formGroupDish" > Dish / Drink </label>
+              <label  for="formGroupDish" > Dish / Drink </label>
                 <div className="col-4">
                 <input type="text" name="dish" id="formGroupDish" className="form-control border border-dark" value={item.dish} onChange={handleChange} />
                 </div>
               </div>
               
               <div className="form-group">
-              <label for="formGroupDetails"> Details </label>
+              <label  for="formGroupDetails"> Details </label>
                 <div className="col-4">
                 <textarea id="formGroupDetails" className="form-control border border-dark" name="details" value={item.details} onChange={handleChange}></textarea>
                 </div>
               </div>
 
               <div className="form-group">
-              <label for="formGroupImage"> Image File </label>
+              <label  for="formGroupImage"> Image File </label>
                 <div className="col-4">
                 <input  id="formGroupImage" className="form-control border border-dark" type="url" name="imagefile" value={item.imagefile} onChange={handleChange}/>
                 </div>
               </div>
               
               <div className="form-group">
-              <label for="formGroupPrice"> Price </label>
+              <label className="label label-default" for="formGroupPrice"> Price </label>
                 <div className="col-4">
                 <input id="formGroupPrice" className="form-control border border-dark" type="number" name="price" value={item.price} onChange={handleChange}/>
                 </div>

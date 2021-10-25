@@ -10,7 +10,6 @@ function Navbar() {
                 <li><NavLink to="/admin" exact>Admin</NavLink></li>
                 <li><NavLink to="/queue">Kitchen</NavLink></li>
                 <li><NavLink to="/menu" exact>Menu</NavLink></li>
-                <li><NavLink to="/orders">Order Summary</NavLink></li>
             </ul>
         </nav>
     );
