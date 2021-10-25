@@ -11,12 +11,31 @@ function AdminQueueView(props) {
 
     return (
         <div className="AdminQueueView">
+            <div className = "container">
             <h2>ORDERS</h2>
             {props.orders.map((element) =>(
                 <li onClick={handleStrike}>
-                {element.date_time} DISH: {element.dish}  QTY: {element.quantity} TABLE:{element.tablenumber} 
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"> DATE/TIME </th>
+                            <th scope="col"> DISH </th>
+                            <th scope="col"> QUANTITY </th>
+                            <th scope="col"> TABLE </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{element.date_time}</td>
+                            <td>{element.dish}</td>
+                            <td>{element.quantity}</td>
+                            <td>{element.tablenumber}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 </li>
             ))}
+            </div>
         </div>
     );
 }

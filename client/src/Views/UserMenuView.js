@@ -15,6 +15,10 @@ const handleChange = (event) => {
     setOrderItems({...orderItems, [event.target.name]: event.target.value});
   }
 
+const handleClick = (event) => {
+    setOrderItems({...orderItems, [event.target.name]: event.target.value});
+  } 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     props.addOrder(orderItems);
@@ -25,11 +29,16 @@ const handleChange = (event) => {
     return (
         <div className="UserMenuView">
             <div className="container">
-            <h3>Enter your table number.</h3>
-            <form onSubmit = {handleSubmit}>
-            <label>TABLE NUMBER:<input name="tablenumber" value={orderItems.tablenumber} onChange={handleChange} type="number" min="1" max="10"/></label>
-            <h2>Menu</h2>
-            <p>Choose the items you would like to order and hit submit.</p>
+                <h3>Enter your table number.</h3>
+                <form onSubmit = {handleSubmit}>
+                
+                <div className="form-group">
+                <label for="inputTableNumber">TABLE NUMBER:<input id="inputTableNumber" className="form-control border border-dark" name="tablenumber" value={orderItems.tablenumber} onChange={handleChange} type="number" min="1" max="10"/></label>
+                </div>
+            
+                <h2>Menu</h2>
+                <p>Choose the items you would order, choose the quantity and hit submit.</p>
+            
             <ul>
                 
                 {props.menu.map((element) => (
@@ -41,24 +50,30 @@ const handleChange = (event) => {
                     </div>
                     
                     <div className="col-md">
-                    <button type = "button" name="dish" value = {orderItems.dish = element.dish} onChange={handleChange}> {element.dish} </button> 
+                    <button type = "button" class="btn btn-secondary btn-sm" name="dish" value = {element.dish} onClick={handleClick}> {element.dish} </button> 
                     <br/> {element.details}
+                    <br/> {element.category}
                     </div>
                     
                     <div className="col-sm"> 
                      EU{element.price}
                     </div>  
-
-                    <div className="col-sm"> 
-                    <input name="quantity" value={orderItems.quantity} type="number" onChange={handleChange} min="1" max="10"/>
-                    </div>
+                    
                     </div>    
                     </li>
                 ))
                 }
-                
             </ul>
-                <button type="submit">SUBMIT ORDER</button>    
+
+            <div className = "form-group">
+            <label for="quantity">QUANTITY</label>
+            <div className="col-4">
+            <input id="quantity" class="form-control border border-dark" name="quantity" value={orderItems.quantity} type="number" onChange={handleChange} min="1" max="10"/>
+            </div>
+            </div>    
+            
+            <button type="submit" className="btn btn-primary btn-lg">SUBMIT ORDER</button>    
+            
             </form>
             </div>
         </div>
