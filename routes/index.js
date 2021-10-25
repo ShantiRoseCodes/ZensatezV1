@@ -2,11 +2,6 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.send({ title: 'Express' });
-// });
-
 
 router.get('/', async function(req, res, next){
   try{
@@ -32,6 +27,8 @@ router.post('/', async function(req,res,next){
   }  
 });
 
+// http:localhost:5000//menu/orders
+// for getting and posting the orders 
 router.get('/orders', async function(req, res, next){
   try{
     let response = await db("SELECT * FROM orders ORDER BY date_time DESC;");

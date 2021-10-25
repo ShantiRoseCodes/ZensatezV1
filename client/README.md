@@ -1,3 +1,23 @@
+# Zensatez Restaurant Management App
+
+The app was created to have a more sustainable means of creating and distributing restaurant menus to customers. 
+
+## The Back End
+
+# The Database
+
+A database with two tables was created for this app: a menu table and an orders table.
+The menu table contains the details entered to create the menu: category, dish, details, and price.
+The  orders table contains the customers' orders: date/time the order was made, the dish ordered, the quantity of the dish ordered, and the table number.
+
+![database](public\images\Databse Schematic.JPG)
+
+# The API
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

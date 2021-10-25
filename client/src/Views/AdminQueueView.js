@@ -5,14 +5,15 @@ import './Views.css';
 
 function AdminQueueView(props) {
 
-    // const handleStrike = event => {
-    //     event.target.className = "strike";
-    // }
-
+// Strikes through finished tasks
     const handleStrike = event => {
         let li = event.target.closest('li');
         li.classList.add('strike');
     }
+
+    // At first, I thought adding a Boolean in orders table is unnecessary UNTIL I hit refrest.
+    // Now considering adding a Complete column to orders in DB with a boolean data type.
+    // Using ternary operator to strike through the tasks finished.
 
     return (
         <div className="AdminQueueView">

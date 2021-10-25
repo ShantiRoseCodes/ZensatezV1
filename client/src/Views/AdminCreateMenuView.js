@@ -18,7 +18,6 @@ function AdminCreateMenuView (props) {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(item);
         props.addItem(item);
         setItem(emptyForm);
       }

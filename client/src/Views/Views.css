@@ -1,3 +1,4 @@
+/* CSS file is necessary for striking through finished tasks on AdminQueue View */
 li.strike {
     text-decoration: line-through !important;
 }

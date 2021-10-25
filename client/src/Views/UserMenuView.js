@@ -11,11 +11,13 @@ const emptyForm = {
 
 let [orderItems, setOrderItems] = useState(emptyForm);
 
+// handleChange for the text input and select inputs part of the form.
 const handleChange = (event) => {
     setOrderItems({...orderItems, [event.target.name]: event.target.value});
   }
 
-const handleClick = (event) => {
+// a handleClick for the button that inputs the dish's value into the form.
+  const handleClick = (event) => {
     setOrderItems({...orderItems, [event.target.name]: event.target.value});
   } 
 
@@ -25,6 +27,7 @@ const handleClick = (event) => {
     setOrderItems(emptyForm);
   }
 
+// Considering ternary operator to group lists into categories?
 
     return (
         <div className="UserMenuView">
@@ -40,7 +43,7 @@ const handleClick = (event) => {
                 </div>
             
                 <h2>Menu</h2>
-                <p>Choose the items you would order, choose the quantity and hit submit.</p>
+                <p>Choose the items you would like to order, choose the quantity and hit submit.</p>
             
             <ul>
                 
