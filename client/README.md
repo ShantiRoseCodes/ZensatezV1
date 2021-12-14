@@ -12,7 +12,7 @@ The  orders table contains the customers' orders: date/time the order was made, 
 
 ![databaseSchematic](./images/DatabseSchematic.jpg)
 
-### The API
+### The API  
 ![api](./images/API.jpg)
 The image shows the API get and post functions used by app.
 
