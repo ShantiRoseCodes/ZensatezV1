@@ -15,19 +15,13 @@ CREATE TABLE food (
     dish VARCHAR(200),
     details VARCHAR(500),
     imagefile VARCHAR(500),
-    price DEC(5,2),
     menudia_ID INT, 
     FOREIGN KEY (menudia_ID) REFERENCES menudia(id) ON DELETE CASCADE
 ); 
 
 CREATE TABLE beverage ( 
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    drink VARCHAR(200),
-    details VARCHAR(500),
-    imagefile VARCHAR(500),
-    price DEC(5,2),
-    menudia_ID INT,
-    FOREIGN KEY (menudia_ID) REFERENCES menudia(id) ON DELETE CASCADE
+    drink VARCHAR(200)
 ); 
 
 
@@ -43,17 +37,16 @@ CREATE TABLE beverage (
 INSERT INTO menudia (dishType)
     VALUES ('Starter'),
     ('Main'),
-    ('Dessert'),
-    ('Drinks');
+    ('Dessert');   
 
 
-INSERT INTO food (dish, details, imagefile, price, menudia_ID)  
-    VALUES ('Patatas Bravas', 'fried potatoes with salsa brava', 'https://spanishsabores.com/wp-content/uploads/2016/03/DSC07129.jpg', 7.50, 1),
-    ('Ensalada de Calabcin', 'zucchinni salad', 'https://i.blogs.es/293c4c/ensalada-de-calabacin-a-la-plancha-con-queso-feta-y-menta/840_560.jpg', 9.00, 2),
-    ('Brownie a la Mode', 'brownie with a scoop of chocolate or vanilla ice cream', 'https://scm-assets.constant.co/scm/unilever/d806c3b80def8183f2c1c0e93e7fb11b/38e0e79a-a552-4886-be32-6b93c030256c.jpg', 9.50, 3);
+INSERT INTO food (dish, details, imagefile, menudia_ID)  
+    VALUES ('Patatas Bravas', 'fried potatoes with salsa brava', 'https://spanishsabores.com/wp-content/uploads/2016/03/DSC07129.jpg', 1),
+    ('Ensalada de Calabcin', 'zucchinni salad', 'https://i.blogs.es/293c4c/ensalada-de-calabacin-a-la-plancha-con-queso-feta-y-menta/840_560.jpg', 2),
+    ('Brownie a la Mode', 'brownie with a scoop of chocolate or vanilla ice cream', 'https://scm-assets.constant.co/scm/unilever/d806c3b80def8183f2c1c0e93e7fb11b/38e0e79a-a552-4886-be32-6b93c030256c.jpg', 3);
     
-INSERT INTO beverage (drink, details, imagefile, price, menudia_ID)
-    VALUES ('House Red', 'Ramon Bilbao Tinto', 'https://static.carrefour.es/hd_1600x_/img_pim_food/053432_00_2_Bodega.jpg', 3.25, 4);
+INSERT INTO beverage (drink)
+    VALUES ('House Red');
 
 
 -- INSERT INTO orders (tablenumber, dish, quantity)
