@@ -17,7 +17,8 @@ module.exports = async function db(query) {
       user: DB_USER || "root",
       password: DB_PASS,
       database: DB_NAME || "zensatez",
-      multipleStatements: true
+      multipleStatements: true,
+      port: 3307
     });
 
     con.connect(function(err) {
