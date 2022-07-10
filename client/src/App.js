@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 //import { useHistory } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from './Components/Navbar';
-import Routes from './Components/Routes';
+
+import AdminCreateMenuView from './Views/AdminCreateMenuView';
+import AdminQueueView from './Views/AdminQueueView';
+import UserMenuView from './Views/UserMenuView';
 
 
 export default function App (){
@@ -80,7 +84,11 @@ export default function App (){
   return (
     <div>
       <Navbar/>
-      <Routes orders={orders} menu = {menu} addItem = {item => addItem(item)} addOrder = {orders => addOrder(orders)}/>  
+      <Routes>
+        <Route path="/admin" element={<AdminCreateMenuView addItem = {item => addItem(item)} />}/>
+        <Route path="/queue" element = {<AdminQueueView orders={orders}/>}/>
+        <Route path="/menu" element = {<UserMenuView menu = {menu}   addOrder = {orders => addOrder(orders)} orders={orders} />}/>
+      </Routes>
     </div>
   );
 
