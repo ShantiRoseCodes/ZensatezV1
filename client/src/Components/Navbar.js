@@ -6,9 +6,9 @@ import './Navbar.css';
 function Navbar() {
     return (
         <nav className="Navbar">
-            <Link to="/admin" exact>Admin</Link>
-            <Link to="/queue">Kitchen</Link>
-            <Link to="/menu" exact>Menu</Link>
+            <button><Link to="/admin" exact>Admin</Link></button>
+            <button><Link to="/kitchen">Kitchen</Link></button>
+            <button><Link to="/menu" exact>Menu</Link></button>
         </nav>
     );
 }

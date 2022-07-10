@@ -6,7 +6,7 @@ import "./App.css";
 import Navbar from './Components/Navbar';
 
 import AdminCreateMenuView from './Views/AdminCreateMenuView';
-import AdminQueueView from './Views/AdminQueueView';
+import KitchenView from './Views/KitchenView';
 import UserMenuView from './Views/UserMenuView';
 
 
@@ -86,7 +86,7 @@ export default function App (){
       <Navbar/>
       <Routes>
         <Route path="/admin" element={<AdminCreateMenuView addItem = {item => addItem(item)} />}/>
-        <Route path="/queue" element = {<AdminQueueView orders={orders}/>}/>
+        <Route path="/kitchen" element = {<KitchenView orders={orders}/>}/>
         <Route path="/menu" element = {<UserMenuView menu = {menu}   addOrder = {orders => addOrder(orders)} orders={orders} />}/>
       </Routes>
     </div>
