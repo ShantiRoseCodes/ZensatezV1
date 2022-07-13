@@ -27,7 +27,7 @@ function AdminCreateMenuView (props) {
           <div className="container">
           <form onSubmit = {handleSubmit}>
             
-            <div className="form-group">
+            <div className = "one-third">
               <label for="category"> Category </label>
                 <select className="form-control border border-dark" id="category" name="category" value={item.category} onChange={handleChange}>
                   <option value="mdEntree"> MENU DIA Entree </option> 
@@ -40,23 +40,25 @@ function AdminCreateMenuView (props) {
                   <option  value="alcoholic"> Alcoholic </option> 
                   <option  value="nonalcoholic"> Nonalcoholic </option>
                 </select>
-            </div>  
-              
-                
+            </div>
+
               <label  for="formGroupDish" > Dish / Drink 
-              <input type="text" name="dish" id="formGroupDish" className="form-control border border-dark" value={item.dish} onChange={handleChange} />
+              <input type="text" name="dish" id="formGroupDish"  value={item.dish} onChange={handleChange} />
               </label>
 
+              <label  for="formGroupImage"> Image File 
+              <input  id="formGroupImage"  type="url" name="imagefile" value={item.imagefile} onChange={handleChange}/>
+              </label>
+
+              <label for="formGroupPrice"> Price 
+              <input id="price"  type="number" name="price" value={item.price} onChange={handleChange}/>
+              </label>
+              
               <div className="full-width">
               <label  for="details"> Details </label>
-              <textarea id="formGroupDetails" className="form-control border border-dark" name="details" value={item.details} onChange={handleChange}></textarea>
+              <textarea id="formGroupDetails"  name="details" value={item.details} onChange={handleChange}></textarea>
               </div>
               
-              <label  for="formGroupImage"> Image File </label>
-              <input  id="formGroupImage" className="form-control border border-dark" type="url" name="imagefile" value={item.imagefile} onChange={handleChange}/>
-                
-              <label className="label label-default" for="formGroupPrice"> Price </label>
-              <input id="price"  type="number" name="price" value={item.price} onChange={handleChange}/>
               
               <div className = "full-width">
               <button type = "submit">SUBMIT</button>
